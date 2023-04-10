@@ -38,3 +38,20 @@ function drawPaddle() {
     ctx.strokeStyle = "#ffffff";
     ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
 }
+// control the paddle with keyboard
+document.addEventListener("keydown", function(e) {
+    if(e.key == 'ArrowLeft') {
+        leftArrow = true;
+    } else if(e.key == 'ArrowRight') {
+        rightArrow = true;
+    }
+})
+
+
+document.addEventListener("keyup", function(e) {
+    if(e.key == 'ArrowLeft') {
+        leftArrow = false;
+    } else if(e.key == 'ArrowRight') {
+        rightArrow = false;
+    }
+})
