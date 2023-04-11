@@ -198,7 +198,28 @@ function createBrickes() {
     }
 }
 createBrickes()
-// ********************************************
+ //draw the bricks  
+function drawBricks() {
+    for(let row = 0; row < brick.row; row++) {
+        for(let col = 0; col < brick.coulmn; col++) {
+            let brk = bricks[row][col];
+            // check if the brick is not broken
+            if(brk.status) {
+                ctx.fillStyle = brick.fillColor;
+                ctx.fillRect(brk.x, brk.y, brick.width, brick.height);
+                ctx.strokeStyle = brick.strokeColor;
+                ctx.strokeRect(brk.x, brk.y, brick.width, brick.height);
+            }
+            if(brk.count == 1) {
+                ctx.fillStyle = "#eee";
+                ctx.fillRect(brk.x, brk.y, brick.width, brick.height);
+                ctx.strokeStyle = "#fff";
+                ctx.strokeRect(brk.x, brk.y, brick.width, brick.height);
+            }
+        }
+    }
+}
+
 // collision of ball brick
 function ballBrickCollision() {
     for(let row = 0; row < brick.row; row++) {
