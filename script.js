@@ -30,6 +30,13 @@ const paddle = {
     dx: 5
 }
 
+// Draw The Paddle
+function drawPaddle() {
+    ctx.fillStyle = "#f57f17";
+    ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+    ctx.strokeStyle = "#ffffff";
+    ctx.strokeRect(paddle.x, paddle.y, paddle.width, paddle.height);
+}
 
 
 
