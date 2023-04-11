@@ -54,7 +54,14 @@ document.addEventListener("keyup", function(e) {
     }
 })
 
-
+// control the paddle with mouse
+document.addEventListener("mousemove", mouseMoveHandler, false);
+function mouseMoveHandler(e) {
+    const relativeX = e.clientX - cvs.offsetLeft;
+    if (relativeX > 0 && relativeX < cvs.width) {
+        paddle.x = relativeX - paddle.width / 2;
+    }
+}
 
 
 
