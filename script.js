@@ -20,6 +20,51 @@ let level = 1;
 let maxLevel = 3;
 let gameEnd = false;
 
+// Start The Game
+function startTheGame() {
+    let overlay = document.createElement("div");
+    // Add Class To Overlay
+    overlay.className = "popup-overlay";
+    // Append Overlay To The Body
+    document.body.appendChild(overlay);
+    // Create The Popup Box
+    let popupBox = document.createElement("div");
+    // Add Class To Popup Box
+    popupBox.className = "popup-box";
+    // create text for heading
+    let textHeading = document.createElement("h3");
+    textHeading.innerText = `Hello There !`;
+    // append the heading to the popup box
+    popupBox.appendChild(textHeading);
+    // Append The Popup Box TO Body
+    document.body.appendChild(popupBox);
+    // add image
+    let image = document.createElement("img");
+    image.src = "img/welcome.png";
+    image.className = "popupImge moving";
+    popupBox.appendChild(image);
+    // Create Play Again Button
+    let start = document.createElement("button");
+    // Add Class Name to button
+    start.className = "btn";
+    // Inner Play Again Text
+    start.innerText = "Start";
+    // Append The Buttom To Popup Box
+    popupBox.appendChild(start);
+
+    document.addEventListener('click', function(ev) {
+        brickHit.play();
+        if(ev.target.className == "btn") {
+            // Remove The Popup
+            ev.target.parentNode.remove();
+            // remove overlay
+            document.querySelector(".popup-overlay").remove();
+            loop();
+        }
+    })
+}
+startTheGame();
+
 
 // Create The Paddle
 const paddle = {
