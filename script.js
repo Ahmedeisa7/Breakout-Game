@@ -170,8 +170,20 @@ function ballBrickCollision() {
     }
 }
 
-// ********************************************
+//  Bricks object 
+const brick = {
+    row: 3,
+    coulmn: 8,
+    width: 54,
+    height: 20,
+    offSetLeft: 20,
+    offSetTop: 20,
+    marginTop: 40,
+    fillColor: "#2e3548",
+    strokeColor: "#FFF"
+}
 
+// ********************************************
 // collision of ball brick
 function ballBrickCollision() {
     for(let row = 0; row < brick.row; row++) {
