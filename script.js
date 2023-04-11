@@ -72,7 +72,15 @@ function movePaddle() {
     }
 }
 
-
+// create the ball
+const ball = {
+    x: cvs.width/2,
+    y: paddle.y - ballRadius,
+    radius: ballRadius,
+    speed: 7,
+    dx: 3,
+    dy: -3
+}
 
 
 
