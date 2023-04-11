@@ -332,3 +332,70 @@ function loop() {
         requestAnimationFrame(loop);
     }
 }
+
+//create popup function
+function popUp(message, img) {
+    let overlay = document.createElement("div");
+    // Add Class To Overlay
+    overlay.className = "popup-overlay";
+    // Append Overlay To The Body
+    document.body.appendChild(overlay);
+    // Create The Popup Box
+    let popupBox = document.createElement("div");
+    // Add Class To Popup Box
+    popupBox.className = "popup-box";
+    // create text for heading
+    let textHeading = document.createElement("h3");
+    textHeading.innerText = `${message}`;
+    // append the heading to the popup box
+    popupBox.appendChild(textHeading);
+    // Append The Popup Box TO Body
+    document.body.appendChild(popupBox);
+    // add image
+    let image = document.createElement("img");
+    image.src = `${img}`;
+    image.className = "popupImge";
+    popupBox.appendChild(image);
+    // Show Score
+    let scoreTex = document.createElement('span');
+    scoreTex.setAttribute("class", "score");
+    scoreTex.innerText = `Your Score: ${score}`;
+    popupBox.appendChild(scoreTex);
+    // Create Play Again Button
+    let playAgain = document.createElement("button");
+    // Add Class Name to button
+    playAgain.className = "btn";
+    // Inner Play Again Text
+    playAgain.innerText = "Play Again";
+    // Append The Buttom To Popup Box
+    popupBox.appendChild(playAgain);
+    // create close span
+    let closeButton = document.createElement("span");
+    // create the close button text
+    let closeButtonText = document.createTextNode("x");
+    // append text to close button
+    closeButton.appendChild(closeButtonText);
+    // add class to close button
+    closeButton.className = "close-button";
+    // add close button to popup box
+    popupBox.appendChild(closeButton);
+    // close the popup
+    document.addEventListener("click", function(e) {
+    if (e.target.className == "close-button") {
+    // Remove The Popup
+    e.target.parentNode.remove();
+    close();
+    // remove overlay
+    document.querySelector(".popup-overlay").remove();
+}
+});
+document.addEventListener('click', function(ev) {
+    brickHit.play();
+    if(ev.target.className == "btn") {
+        // Remove The Popup
+        // ev.target.parentNode.remove();
+        // document.querySelector(".popup-overlay").remove();
+        location.reload();
+    }
+    })
+}
