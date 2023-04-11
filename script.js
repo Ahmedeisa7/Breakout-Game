@@ -21,6 +21,14 @@ let maxLevel = 3;
 let gameEnd = false;
 
 
+// Create The Paddle
+const paddle = {
+    x: cvs.width/2 - paddle_width/2,
+    y: cvs.height - paddle_margin_bottom - paddle_height,
+    width: paddle_width,
+    height: paddle_height,
+    dx: 5
+}
 
 
 
