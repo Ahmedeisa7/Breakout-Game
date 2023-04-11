@@ -102,6 +102,21 @@ function moveBall() {
     ball.y += ball.dy;
 }
 
+// ball wall collision
+function ballCollision() {
+    if(ball.x + ball.radius > cvs.width || ball.x - ball.radius < 0) {    
+        ball.dx = - ball.dx;
+    }
+    if(ball.y - ball.radius < 0) {
+        ball.dy = - ball.dy;
+    }
+    if(ball.y + ball.radius > cvs.height) {
+        life--;
+        failed.play();
+        resetBall();
+    }
+}
+
 
 // have paddle and ball draw functions
 function draw() {
