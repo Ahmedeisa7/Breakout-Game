@@ -82,6 +82,19 @@ const ball = {
     dy: -3
 }
 
+// draw the ball function
+function drawBall() {
+    ctx.beginPath();
+
+    ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2);
+    ctx.fillStyle = "#ff7043";
+    ctx.fill();
+
+    ctx.strokeStyle = "#fff8b6";
+    ctx.stroke();
+
+    ctx.closePath();
+}
 
 
 // have paddle and ball draw functions
