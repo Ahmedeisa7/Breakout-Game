@@ -218,6 +218,30 @@ function gameOver() {
     } 
 }
 
+// New Levels
+function levelsUp() {
+    let levelDone = true;
+    for(let row = 0; row < brick.row; row++) {
+        for(let col = 0; col < brick.coulmn; col++) {
+            levelDone = levelDone && ! bricks[row][col].status;
+        }
+    }
+    if(levelDone) {
+        if(level >= maxLevel) {
+            gameEnd = true;
+            win.play();
+            popUp("Congratulations", "img/success.png");
+        }
+        win.play();
+        brick.row++;
+        createBrickes();
+        ball.speed += 1;
+        resetBall();
+        level++;
+    }
+}
+
+
 // have paddle and ball draw functions
 function draw() {
     drawPaddle()
