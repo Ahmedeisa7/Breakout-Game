@@ -117,6 +117,30 @@ function ballCollision() {
     }
 }
 
+//reset ball
+function resetBall() {
+
+    ball.x = cvs.width/2;
+    
+    ball.y = paddle.y - ballRadius;
+    
+    ball.dx = 3;
+    
+    ball.dy = -3;
+}
+
+// The Collision Between Paddle And The Ball
+function blpaddleCollision() {
+    if(ball.x < paddle.x + paddle.width && ball.x > paddle.x && paddle.y < paddle.y < paddle.y + paddle.height && ball.y > paddle.y) {
+        
+        let collidePoint = ball.x - (paddle.x + paddle.width/2);
+        collidePoint = collidePoint / (paddle.width/2);
+        let angle = collidePoint * Math.PI/3;
+        ball.dx = ball.speed * Math.sin(angle);
+        ball.dy = - ball.speed * Math.cos(angle);
+        wallHit.play();
+    }
+}
 
 // have paddle and ball draw functions
 function draw() {
