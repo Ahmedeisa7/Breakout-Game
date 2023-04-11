@@ -142,6 +142,64 @@ function blpaddleCollision() {
     }
 }
 
+
+// collision of ball brick
+function ballBrickCollision() {
+    for(let row = 0; row < brick.row; row++) {
+        for(let col = 0; col < brick.coulmn; col++) {
+            let brk = bricks[row][col];
+            // check if the brick is not broken
+            if(brk.status) {
+                if(ball.x + ball.radius > brk.x && ball.x - ball.radius < brk.x + brick.width &&
+                    ball.y + ball.radius > brk.y && ball.y - ball.radius < brk.y + brick.height) {
+                        brk.count++;
+                        if(brk.count == 1) {
+                            brickHit.play();
+                            ball.dy = - ball.dy; // change the direction of ball
+                            brk.status = true;
+                        }
+                        if(brk.count == 2) {
+                            brickHit.play();
+                            ball.dy = - ball.dy;
+                            brk.status = false;
+                            score += scoreUnite;
+                        }
+                }
+            }
+        }
+    }
+}
+
+// ********************************************
+
+// collision of ball brick
+function ballBrickCollision() {
+    for(let row = 0; row < brick.row; row++) {
+        for(let col = 0; col < brick.coulmn; col++) {
+            let brk = bricks[row][col];
+            // check if the brick is not broken
+            if(brk.status) {
+                if(ball.x + ball.radius > brk.x && ball.x - ball.radius < brk.x + brick.width &&
+                    ball.y + ball.radius > brk.y && ball.y - ball.radius < brk.y + brick.height) {
+                        brk.count++;
+                        if(brk.count == 1) {
+                            brickHit.play();
+                            ball.dy = - ball.dy; // change the direction of ball
+                            brk.status = true;
+                        }
+                        if(brk.count == 2) {
+                            brickHit.play();
+                            ball.dy = - ball.dy;
+                            brk.status = false;
+                            score += scoreUnite;
+                        }
+                }
+            }
+        }
+    }
+}
+
+
 // have paddle and ball draw functions
 function draw() {
     drawPaddle()
