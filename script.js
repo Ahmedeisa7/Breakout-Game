@@ -1,5 +1,5 @@
 // Select Canvas Element From Html
-const cvs = document.getElementById('game');
+const cvs = document.getElementById('breakout');
 const ctx = cvs.getContext("2d");
 
 // To make Color Theck
