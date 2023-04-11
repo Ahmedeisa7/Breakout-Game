@@ -96,6 +96,12 @@ function drawBall() {
     ctx.closePath();
 }
 
+// move the ball
+function moveBall() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+}
+
 
 // have paddle and ball draw functions
 function draw() {
