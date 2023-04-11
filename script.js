@@ -208,6 +208,16 @@ function gameStatus(text, textX, textY, img, imgX, imgY) {
 
     ctx.drawImage(img, imgX, imgY, width = 25, height = 25);
 }
+
+// Game Over 
+function gameOver() {
+    if(life <= 0) {
+        gameEnd = true;
+        failed.play();
+        popUp("ooh you are failed", "img/failed.png");
+    } 
+}
+
 // have paddle and ball draw functions
 function draw() {
     drawPaddle()
@@ -220,6 +230,7 @@ function draw() {
     //Show Level
     gameStatus(level, cvs.width/2, 25, levelImg, cvs.width/2 - 30, 5);
 }
+
 
 
 // update function 
