@@ -2,7 +2,7 @@
 const cvs = document.getElementById('breakout');
 const ctx = cvs.getContext("2d");
 
-// To make Color Theck
+// To make Color Thick
 ctx.lineWidth = 2;
 
 // paddle 
