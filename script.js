@@ -182,7 +182,22 @@ const brick = {
     fillColor: "#2e3548",
     strokeColor: "#FFF"
 }
-
+// function To Create Brickes 
+let bricks = [];
+function createBrickes() {
+    for(let row = 0; row < brick.row; row++) {
+        bricks[row] = []
+        for(let col = 0; col < brick.coulmn; col++) {
+            bricks[row][col] = {
+                x: col * (brick.offSetLeft + brick.width) + brick.offSetLeft,
+                y: row * (brick.offSetTop + brick.height) + brick.offSetTop + brick.marginTop,
+                status: true,
+                count: 0
+            }
+        }
+    }
+}
+createBrickes()
 // ********************************************
 // collision of ball brick
 function ballBrickCollision() {
