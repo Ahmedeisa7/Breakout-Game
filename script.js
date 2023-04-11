@@ -199,7 +199,15 @@ function ballBrickCollision() {
     }
 }
 
+// Game Status
+function gameStatus(text, textX, textY, img, imgX, imgY) {
+    // draw text
+    ctx.fillStyle = '#FFF';
+    ctx.font = "25px DRAGON HUNTER";
+    ctx.fillText(text, textX, textY);
 
+    ctx.drawImage(img, imgX, imgY, width = 25, height = 25);
+}
 // have paddle and ball draw functions
 function draw() {
     drawPaddle()
