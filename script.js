@@ -63,6 +63,15 @@ function mouseMoveHandler(e) {
     }
 }
 
+// Move  Paddle Function
+function movePaddle() {
+    if(rightArrow && paddle.x + paddle.width < cvs.width) {
+        paddle.x += paddle.dx;
+    } else if(leftArrow && paddle.x > 0) {
+        paddle.x -= paddle.dx;
+    }
+}
+
 
 
 
